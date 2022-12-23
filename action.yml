@@ -1,3 +1,5 @@
+# This actions is created referring https://docs.github.com/en/actions/creating-actions/creating-a-composite-action
+
 name: 'Add Registry'
 description: 'Add Registry to Julia Environment'
 inputs:
@@ -5,10 +7,7 @@ inputs:
     description: 'author/repo for your registry hosted under Github'
     required: false
     default: 'okatsn/OkRegistry'
-outputs:
-  random-number:
-    description: "Random number"
-    value: ${{ steps.random-number-generator.outputs.random-number }}
+
 runs:
   using: "composite"
   steps:
