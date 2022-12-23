@@ -23,7 +23,7 @@ jobs:
       - uses: julia-actions/setup-julia@v1
         with:
           version: '1'
-      - run: okatsn/add-registry
+      - uses: okatsn/add-registry@v1
         with:
           author-name: 'okatsn/OkRegistry'
 
