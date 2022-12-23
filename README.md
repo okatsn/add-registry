@@ -1,8 +1,17 @@
 # Add Registry
-`add-registry` is a github actions that simply add personal julia registry hosted under `"https://github.com/"`.
+`add-registry` is a github actions that simply add personal julia registry.
 
-# Usage
-Example for generating julia Documentation with packages live under `okatsn/OkRegistry`:
+## Requirement
+
+- The registry should be hosted under `"https://github.com/"`. (e.g., "https://github.com/okatsn/OkRegistry.git").
+
+- The registry has to be public.
+
+## Input
+`author-name`: The 'author/repository-name'. Default is 'okatsn/OkRegistry'.
+
+## Usage
+Example for generating julia Documentation of a package named `SWCForecast` which lives under https://github.com/okatsn/OkRegistry.git:
 ```yml
 name: CI
 on:
