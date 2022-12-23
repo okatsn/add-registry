@@ -15,6 +15,6 @@ runs:
     - run: |
         julia --project=@. -e '
           using Pkg;
-          Pkg.Registry.add(RegistrySpec(url = "https://github.com/okatsn/${{ inputs.author-name }}.git"))
+          Pkg.Registry.add(RegistrySpec(url = "https://github.com/${{ inputs.author-name }}.git"))
           '
       shell: bash
