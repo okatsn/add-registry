@@ -1,0 +1,20 @@
+name: 'Add Registry'
+description: 'Add Registry to Julia Environment'
+inputs:
+  author-name:  # id of input
+    description: 'author/repo for your registry hosted under Github'
+    required: false
+    default: 'okatsn/OkRegistry'
+outputs:
+  random-number:
+    description: "Random number"
+    value: ${{ steps.random-number-generator.outputs.random-number }}
+runs:
+  using: "composite"
+  steps:
+    - run: |
+        julia --project=@. -e '
+          using Pkg;
+          Pkg.Registry.add(RegistrySpec(url = "https://github.com/okatsn/${{ inputs.author-name }}.git"))
+          '
+      shell: bash
