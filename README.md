@@ -32,7 +32,7 @@ jobs:
       - uses: julia-actions/setup-julia@v1
         with:
           version: '1'
-      - uses: okatsn/add-registry@v1
+      - uses: okatsn/add-registry@v2
         with:
           author-name: 'okatsn/OkRegistry'
 
