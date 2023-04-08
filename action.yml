@@ -1,5 +1,10 @@
 # This actions is created referring https://docs.github.com/en/actions/creating-actions/creating-a-composite-action
 # Tag is required for it is able to be used.
+# You should manually keep the major version (e.g., @v1) stick to the latest one of the v1.x.x series. For example:
+# - I have a version released as v1.0.0 and tagged as v1.0.1: only `-uses: okatsn/add-registry@v1.0.0` works.
+# - I add an additional tag (v1) to the same commit: both `@v1.0.0` and `@v1` works
+# - I have a new version released as v1.0.1: `@v1` still points to v1.0.0
+# - I delete the old v1 tag, and add a new one on the commit of v1.0.1: Now `@v1` points to the latest release v1.0.1
 
 name: 'Add Registry'
 description: 'Add Registry to Julia Environment'
@@ -18,10 +23,8 @@ runs:
           Pkg.instantiate() # This will download General Registry if it is not installed.
           Pkg.Registry.add(RegistrySpec(url = "https://github.com/${{ inputs.author-name }}.git"));
           Pkg.Registry.update();
-          println("Your registry is successfully added.");
           '
       shell: bash
 branding:
   icon: "package"
   color: "purple"
-  version: "v2.0.2"  
