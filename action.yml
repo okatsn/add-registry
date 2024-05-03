@@ -6,13 +6,13 @@
 # - I have a new version released as v1.0.1: `@v1` still points to v1.0.0
 # - I delete the old v1 tag, and add a new one on the commit of v1.0.1: Now `@v1` points to the latest release v1.0.1
 
-name: 'Add Registry'
-description: 'Add Registry to Julia Environment'
+name: "Add Registry"
+description: "Add Registry to Julia Environment"
 inputs:
-  author-name:  # id of input
-    description: 'author/repo for your registry hosted under Github'
+  author-name: # id of input
+    description: "author/repo for your registry hosted under Github"
     required: false
-    default: 'okatsn/OkRegistry'
+    default: "okatsn/OkRegistry"
 
 runs:
   using: "composite"
@@ -22,6 +22,7 @@ runs:
           using Pkg;
           Pkg.instantiate() # This will download General Registry if it is not installed.
           Pkg.Registry.add(RegistrySpec(url = "https://github.com/${{ inputs.author-name }}.git"));
+          Pkg.Registry.add(RegistrySpec(url = "https://github.com/JuliaRegistries/General.git"));
           Pkg.Registry.update();
           '
       shell: bash
