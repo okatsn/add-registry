@@ -18,7 +18,7 @@ runs:
   using: "composite"
   steps:
     - run: |
-        julia --project=@. -e '
+        julia -e '
           using Pkg;
           Pkg.instantiate() # This will download General Registry if it is not installed.
           Pkg.Registry.add(RegistrySpec(url = "https://github.com/${{ inputs.author-name }}.git"));
